@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic List Filtering</title>
+</head>
+<body>
+
+<h2>Filter Items</h2>
+<input type="text" id="filter-input" placeholder="Type to filter">
+
+<ul id="item-list">
+    <li>Apple</li>
+    <li>Orange</li>
+    <li>Banana</li>
+    <li>Berry</li>
+    <li>Mango</li>
+</ul>
+
+<script>
+    // Get references to the input field and the list
+    var filterInput = document.getElementById('filter-input');
+    var itemList = document.getElementById('item-list');
+
+    // Add event listener to input field for keyup event
+    filterInput.addEventListener('keyup', function() {
+        // Get the value typed by the user
+        var filterValue = filterInput.value.toLowerCase();
+        
+        // Get all list items
+        var items = itemList.getElementsByTagName('li');
+        
+        // Loop through all list items
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            var text = item.textContent.toLowerCase();
+            
+            // Check if the item matches the filter value
+            if (text.indexOf(filterValue) > -1) {
+                item.style.display = ''; // Show the item
+            } else {
+                item.style.display = 'none'; // Hide the item
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

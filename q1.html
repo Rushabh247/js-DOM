@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Picture Upload</title>
+<style>
+    #preview-image {
+        max-width: 300px;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Profile Picture Upload</h2>
+<input type="file" id="image-upload" accept="image/*">
+<div id="preview-container"></div>
+
+<script>
+   
+    var imageUploadInput = document.getElementById('image-upload');
+ 
+    var previewContainer = document.getElementById('preview-container');
+
+   
+    imageUploadInput.addEventListener('change', function(event) {
+     
+        if (event.target.files && event.target.files[0]) {
+            // Create a FileReader object
+            var reader = new FileReader();
+            // Set up onload function to display the selected image as a preview
+            reader.onload = function(e) {
+            
+                var img = document.createElement('img');
+               
+                img.src = e.target.result;
+               
+                img.style.maxWidth = '100%';
+                
+                previewContainer.innerHTML = '';
+                
+                previewContainer.appendChild(img);
+            };
+            
+            reader.readAsDataURL(event.target.files[0]);
+        } else {
+           
+            previewContainer.innerHTML = '';
+        }
+    });
+</script>
+
+</body>
+</html>

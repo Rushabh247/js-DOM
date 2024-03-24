@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Toggle</title>
+</head>
+<body>
+
+<h2 id="image-state">Image is hidden</h2>
+<button id="toggle-button" onclick="toggleImage()">Toggle Image</button>
+<img src="./images 2.jpeg" id="myImage" style="display: none;">
+
+<script>
+    function toggleImage() {
+        var imageElement = document.getElementById('myImage');
+        var imageStateElement = document.getElementById('image-state');
+
+        if (imageElement.style.display === 'none') {
+            imageElement.style.display = 'block';
+            imageStateElement.textContent = 'Image is visible';
+        } else {
+            imageElement.style.display = 'none';
+            imageStateElement.textContent = 'Image is hidden';
+        }
+    }
+</script>
+
+</body>
+</html>

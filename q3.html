@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Counter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #counter {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 18px;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<h2>Web Counter</h2>
+<div id="counter">0</div>
+<button id="increment-btn">+</button>
+<button id="decrement-btn">-</button>
+
+<script>
+    // Get references to elements
+    var counterElement = document.getElementById('counter');
+    var incrementBtn = document.getElementById('increment-btn');
+    var decrementBtn = document.getElementById('decrement-btn');
+
+    // Counter variable
+    var counter = 0;
+
+    // Function to update the counter display
+    function updateCounterDisplay() {
+        counterElement.textContent = counter;
+    }
+
+    // Function to handle increment button click
+    incrementBtn.addEventListener('click', function() {
+        counter++;
+        updateCounterDisplay();
+    });
+
+    // Function to handle decrement button click
+    decrementBtn.addEventListener('click', function() {
+        if (counter > 0) {
+            counter--;
+            updateCounterDisplay();
+        } else {
+            alert("Counter cannot be negative!");
+        }
+    });
+</script>
+
+</body>
+</html>
